@@ -19,8 +19,7 @@
     "composite": true,
     "types": [
       "vite/client",
-      "@intlify/vite-plugin-vue-i18n/client",
-      "element-plus/global"
+      "@intlify/vite-plugin-vue-i18n/client"
     ],
     "paths": {
       "@/*": [
@@ -34,7 +33,8 @@
   "include": [
     "api",
     "utils",
-    "components"
+    "components",
+    "unocss.config.ts"
   ],
   "exclude": [
     "**/dist",

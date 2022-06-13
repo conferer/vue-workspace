@@ -2,9 +2,7 @@
   <img alt="Vue logo" src="/src/assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
   <div>{{ t('messagebox.title') }}</div>
-  <div @click="switchLang">switch language</div>
-  {{ availableLocales }}
-  {{ locale }}
+  <div @click="switchLang" class="my-4">switch language</div>
   <!--  <div>{{ t('button.about') }}</div>-->
   <el-button>Default</el-button>
   <el-button type="primary">Primary</el-button>
@@ -13,6 +11,17 @@
   <el-button type="warning">Warning</el-button>
   <el-button type="danger">Danger</el-button>
   <el-button>中文</el-button>
+
+  <!-- A basic anchor icon from Phosphor icons -->
+  <div class="i-ph-anchor-simple-thin" />
+  <!-- An orange alarm from Material Design Icons -->
+  <div class="i-mdi-alarm text-orange-400" />
+  <!-- A large Vue logo -->
+  <div class="i-logos-vue text-3xl" />
+  <!-- Sun in light mode, Moon in dark mode, from Carbon -->
+  <button class="i-carbon-sun dark:i-carbon-moon" />
+  <!-- Twemoji of laugh, turns to tear on hovering -->
+  <div class="i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" />
 </template>
 
 <script setup lang="ts">

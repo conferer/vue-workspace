@@ -57,6 +57,7 @@ importers:
 
   packages/web-client:
     specifiers:
+      '@iconify-json/carbon': ^1.1.5
       '@intlify/vite-plugin-vue-i18n': ^3.4.0
       '@shimi-edu/api': workspace:*
       '@vitejs/plugin-vue': ^2.3.3
@@ -79,6 +80,7 @@ importers:
       vue-i18n: 9.1.10_vue@3.2.37
       vue-router: 4.0.16_vue@3.2.37
     devDependencies:
+      '@iconify-json/carbon': 1.1.5
       '@intlify/vite-plugin-vue-i18n': 3.4.0_jg524lrp6mwbliyl7dcdb54k4a
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.12+vue@3.2.37
       prettier: 2.6.2
@@ -134,6 +136,16 @@ packages:
     dependencies:
       '@floating-ui/core': 0.7.3
     dev: false
+
+  /@iconify-json/carbon/1.1.5:
+    resolution: {integrity: sha512-ENl8CIEo+7JcRzpJ/58i+dDc3fkNOO7gyNGg4S4JN5cAiVpvltYTVO86Oei7rpl8bKypJ0vk3B0BbzzTw7DclA==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify/types/1.1.0:
+    resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}
+    dev: true
 
   /@intlify/bundle-utils/2.2.2_vue-i18n@9.1.10:
     resolution: {integrity: sha512-vngkvlIVV8ZJoyC5VqMvqJd2nvsx+qMN7pQjPiPjOrVndeiR7Dlue0k86Q8FsFUzyksW3HJZZi833ldxwbFzTA==}

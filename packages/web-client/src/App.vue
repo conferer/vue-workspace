@@ -2,7 +2,11 @@
   <img alt="Vue logo" src="/src/assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
   <div>{{ t('messagebox.title') }}</div>
-  <div @click="switchLang" class="my-4">switch language</div>
+  <div class="my-4">
+    <el-switch v-model="switchVal" @click="switchLang" />
+    switch language
+  </div>
+
   <!--  <div>{{ t('button.about') }}</div>-->
   <el-button>Default</el-button>
   <el-button type="primary">Primary</el-button>
@@ -11,17 +15,16 @@
   <el-button type="warning">Warning</el-button>
   <el-button type="danger">Danger</el-button>
   <el-button>中文</el-button>
-
-  <!-- A basic anchor icon from Phosphor icons -->
-  <div class="i-ph-anchor-simple-thin" />
-  <!-- An orange alarm from Material Design Icons -->
-  <div class="i-mdi-alarm text-orange-400" />
-  <!-- A large Vue logo -->
-  <div class="i-logos-vue text-3xl" />
-  <!-- Sun in light mode, Moon in dark mode, from Carbon -->
-  <button class="i-carbon-sun dark:i-carbon-moon" />
-  <!-- Twemoji of laugh, turns to tear on hovering -->
-  <div class="i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" />
+  <div class="text-center my-4">
+    <!-- A large Vue logo -->
+    <div class="i-carbon-user-admin text-3xl inline-block" />
+    <!-- Sun in light mode, Moon in dark mode, from Carbon -->
+    <button class="i-carbon-sun dark:i-carbon-moon text-2xl" />
+    <!-- Twemoji of laugh, turns to tear on hovering -->
+    <el-badge :value="12" class="item">
+      <el-button>comments</el-button>
+    </el-badge>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -29,8 +32,8 @@
   // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
   import HelloWorld from './components/HelloWorld.vue'
   import { useI18n } from 'vue-i18n'
-  import { userApi } from '@shimi-edu/api/src/user'
-  import { onMounted } from 'vue'
+  import { userApi } from '@conferer/api/src/user'
+  import { onMounted, ref } from 'vue'
 
   onMounted(() => {
     createUser()
@@ -46,6 +49,8 @@
   const createUser = () => {
     userApi.createUser({ name: 'allen', age: 18 })
   }
+
+  const switchVal = ref<boolean>(true)
 </script>
 
 <style>

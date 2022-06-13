@@ -1,34 +1,10 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.web.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "skipLibCheck": true,
-    "composite": true,
     "types": [
-      "vite/client",
-      "@intlify/vite-plugin-vue-i18n/client"
-    ],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "/src/*": [
-        "src/*"
-      ]
-    }
+      "vite/client"
+    ]
   },
   "include": [
     "api",

@@ -2,11 +2,13 @@
   "name": "@conferer/api",
   "private": true,
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "index.js",
   "devDependencies": {
     "vite": "^2.9.9"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "vue": "^3.2.0",
+    "vite": "^2.9.9"
   }
 }

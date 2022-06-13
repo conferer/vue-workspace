@@ -32,8 +32,9 @@
   // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
   import HelloWorld from './components/HelloWorld.vue'
   import { useI18n } from 'vue-i18n'
-  import { userApi } from '@conferer/api/src/user'
+  import { userApi } from '@conferer/api'
   import { onMounted, ref } from 'vue'
+  import { findUsers, isFirefox } from '@conferer/utils'
 
   onMounted(() => {
     createUser()
@@ -53,7 +54,8 @@
         console.log(51, res)
       })
       .catch((err) => {
-        console.log(54, err)
+        console.log(54, err, isFirefox())
+        findUsers([2, 3])
       })
   }
 

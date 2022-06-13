@@ -11,16 +11,28 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "skipLibCheck": true,
     "composite": true,
-    "types": ["vite/client", "@intlify/vite-plugin-vue-i18n/client"],
+    "types": [
+      "vite/client",
+      "@intlify/vite-plugin-vue-i18n/client"
+    ],
     "paths": {
-      "@/*": ["src/*"],
-      "src/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "src/*": [
+        "src/*"
+      ]
     }
   },
   "include": [
+    //    "api/*.ts",
+    "api/**/*.ts",
     "packages/**/src/**/*.ts",
     "packages/**/src/**/*.d.ts",
     "packages/**/src/**/*.tsx",

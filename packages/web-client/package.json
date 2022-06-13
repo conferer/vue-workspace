@@ -9,17 +9,17 @@
   },
   "dependencies": {
     "pinia": "^2.0.14",
-    "vue": "^3.2.36",
-    "vue-i18n": "9",
-    "vue-router": "^4.0.15"
+    "vue": "^3.2.37",
+    "vue-i18n": "^9.1.10",
+    "vue-router": "^4.0.16",
+    "@shimi-edu/api": "workspace:*"
   },
   "devDependencies": {
-    "@intlify/vite-plugin-vue-i18n": "^3.4.0",
+    "@intlify/vite-plugin-vue-i18n": "^4.0.0",
     "@vitejs/plugin-vue": "^2.3.3",
-    "@types/node": "^16.11.36",
-    "typescript": "^4.5.4",
-    "prettier": "^2.5.1",
-    "vite": "^2.9.9",
-    "vue-tsc": "^0.34.7"
+    "prettier": "^2.6.2",
+    "typescript": "^4.7.3",
+    "vite": "^2.9.12",
+    "vue-tsc": "^0.34.17"
   }
 }

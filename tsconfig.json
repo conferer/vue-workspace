@@ -19,24 +19,27 @@
     "composite": true,
     "types": [
       "vite/client",
-      "@intlify/vite-plugin-vue-i18n/client"
+      "@intlify/vite-plugin-vue-i18n/client",
+      "element-plus/global"
     ],
     "paths": {
       "@/*": [
         "src/*"
       ],
-      "src/*": [
+      "/src/*": [
         "src/*"
       ]
     }
   },
   "include": [
-    //    "api/*.ts",
-    "api/**/*.ts",
-    "packages/**/src/**/*.ts",
-    "packages/**/src/**/*.d.ts",
-    "packages/**/src/**/*.tsx",
-    "packages/**/src/**/*.vue",
-    "packages/**/vite.config.ts"
+    "api",
+    "utils",
+    "components"
+  ],
+  "exclude": [
+    "**/dist",
+    "**/node_modules",
+    "packages/**/dist",
+    "packages/**/node_modules"
   ]
 }

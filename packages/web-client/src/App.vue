@@ -47,7 +47,14 @@
   }
 
   const createUser = () => {
-    userApi.createUser({ name: 'allen', age: 18 })
+    userApi
+      .createUser({ name: 'allen', age: 18 })
+      .then((res) => {
+        console.log(51, res)
+      })
+      .catch((err) => {
+        console.log(54, err)
+      })
   }
 
   const switchVal = ref<boolean>(true)

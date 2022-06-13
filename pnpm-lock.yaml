@@ -148,7 +148,7 @@ importers:
       typescript: ^4.7.3
       vite: ^2.9.12
       vue: ^3.2.37
-      vue-i18n: ^9.1.10
+      vue-i18n: '9'
       vue-router: ^4.0.16
       vue-tsc: ^0.34.17
     dependencies:

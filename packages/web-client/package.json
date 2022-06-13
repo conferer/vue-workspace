@@ -8,14 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@shimi-edu/api": "workspace:*",
     "pinia": "^2.0.14",
     "vue": "^3.2.37",
-    "vue-i18n": "^9.1.10",
-    "vue-router": "^4.0.16",
-    "@shimi-edu/api": "workspace:*"
+    "vue-i18n": "9",
+    "vue-router": "^4.0.16"
   },
   "devDependencies": {
-    "@intlify/vite-plugin-vue-i18n": "^4.0.0",
+    "@intlify/vite-plugin-vue-i18n": "^3.4.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "prettier": "^2.6.2",
     "typescript": "^4.7.3",

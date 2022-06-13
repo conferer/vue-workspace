@@ -1,0 +1,12 @@
+{
+  "name": "@shimi-edu/api",
+  "private": true,
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {
+    "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}

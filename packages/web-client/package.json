@@ -1,0 +1,25 @@
+{
+  "name": "web-client",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pinia": "^2.0.14",
+    "vue": "^3.2.36",
+    "vue-i18n": "9",
+    "vue-router": "^4.0.15"
+  },
+  "devDependencies": {
+    "@intlify/vite-plugin-vue-i18n": "^3.4.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@types/node": "^16.11.36",
+    "typescript": "^4.5.4",
+    "prettier": "^2.5.1",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.34.7"
+  }
+}

@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'url'
-import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
@@ -16,10 +15,8 @@ export default defineConfig({
     Unocss({
       presets: [presetWind(), presetIcons()],
     }),
-    AutoImport({
-      resolvers: [ElementPlusResolver()],
-    }),
     Components({
+      dts: false,
       resolvers: [ElementPlusResolver()],
     }),
   ],
@@ -27,6 +24,30 @@ export default defineConfig({
     alias: {
       '/src': fileURLToPath(new URL('./src', import.meta.url)),
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+  server: {
+    https: false,
+    port: 3020,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8600',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+      '/v2/api': {
+        target: 'http://localhost:9000',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/v2\/api/, ''),
+      },
+      '/v3/api': {
+        target: 'http://localhost:8090',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/v3\/api/, ''),
+      },
     },
   },
 })

@@ -2,7 +2,7 @@
   "name": "@conferer/api",
   "private": true,
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "devDependencies": {
     "vite": "^2.9.9"
   },

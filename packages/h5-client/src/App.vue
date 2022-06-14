@@ -1,8 +1,3 @@
-<script setup lang="ts">
-  import { RouterLink, RouterView } from 'vue-router'
-  import HelloWorld from '@/components/HelloWorld.vue'
-</script>
-
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
@@ -15,11 +10,20 @@
         <RouterLink to="/about">About</RouterLink>
       </nav>
       <van-button class="text-sm my-8">hello</van-button>
+      <van-switch v-model="agree">hello</van-switch>
     </div>
   </header>
 
   <RouterView />
 </template>
+
+<script setup lang="ts">
+  import { RouterLink, RouterView } from 'vue-router'
+  import HelloWorld from '@/components/HelloWorld.vue'
+  import { ref } from 'vue'
+
+  const agree = ref<boolean>(false)
+</script>
 
 <style>
   @import '@/assets/base.css';

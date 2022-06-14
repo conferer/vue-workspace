@@ -24,6 +24,7 @@
     <el-badge :value="12" class="item">
       <el-button>comments</el-button>
     </el-badge>
+    <el-card shadow="hover"> you'r right</el-card>
   </div>
 </template>
 

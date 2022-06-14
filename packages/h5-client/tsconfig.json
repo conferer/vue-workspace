@@ -11,9 +11,7 @@
       ]
     },
     "types": [
-      "vite/client",
-      "element-plus/global",
-      "@intlify/vite-plugin-vue-i18n/client"
+      "vite/client"
     ]
   },
   "exclude": [

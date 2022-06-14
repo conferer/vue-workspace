@@ -4,8 +4,7 @@
     "baseUrl": ".",
     "types": [
       "vite/client",
-      "element-plus/global",
-      "@intlify/vite-plugin-vue-i18n/client"
+      "element-plus/global"
     ],
     "paths": {
       "@/*": [

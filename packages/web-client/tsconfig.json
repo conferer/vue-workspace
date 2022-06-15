@@ -2,12 +2,12 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "types": ["vite/client", "element-plus/global", "@intlify/vite-plugin-vue-i18n/client"],
+    "types": ["vite/client", "element-plus/global"],
     "paths": {
       "@/*": ["./src/*"],
       "/src": ["./src/*"]
     }
   },
-  "include": ["src/*.ts", "src/**/*.ts"],
+  "include": ["src/*.ts", "src/**/*.ts", "src/**/*.vue"],
   "exclude": ["dist", "node_modules"]
 }

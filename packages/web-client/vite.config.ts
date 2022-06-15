@@ -18,7 +18,6 @@ export default defineConfig({
       presets: [presetWind(), presetIcons()],
     }),
     Components({
-      dts: false,
       resolvers: [ElementPlusResolver()],
     }),
   ],

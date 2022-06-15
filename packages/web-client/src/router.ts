@@ -2,14 +2,29 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    name: 'homepage',
     path: '/',
+    name: 'homepage',
     component: () => import('/src/pages/index.vue'),
   },
   {
-    name: 'user',
     path: '/user',
+    name: 'user',
     component: () => import('/src/pages/user.vue'),
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('/src/pages/login.vue'),
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: () => import('/src/pages/logout.vue'),
+  },
+  {
+    path: '/message',
+    name: 'message',
+    component: () => import('/src/pages/message.vue'),
   },
 ]
 

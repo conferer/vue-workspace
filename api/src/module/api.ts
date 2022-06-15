@@ -29,7 +29,7 @@ api.interceptors.response.use(
     console.log(19, res.data)
 
     if (res.data?.status === 'success') {
-      return res
+      return res.data
     }
 
     translateMsg(res.data)

@@ -3,14 +3,16 @@
   "private": true,
   "version": "1.0.0",
   "main": "index.ts",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "qs": "^6.10.5"
+  },
   "devDependencies": {
     "@conferer/utils": "workspace:*",
+    "@types/qs": "^6.9.7",
     "element-plus": "^2.2.5",
     "vant": "^4.0.0-alpha.4",
-    "vue": "^3.2.0",
-    "vite": "^2.9.9"
-  },
-  "dependencies": {
-    "axios": "^0.27.2"
+    "vite": "^2.9.9",
+    "vue": "^3.2.0"
   }
 }

@@ -1,8 +1,11 @@
 import axios, { AxiosInstance } from 'axios'
 import messages from './i18n'
+import { ElMessage } from 'element-plus'
+import { Notify } from 'vant'
+import { isMobile } from '@conferer/utils'
 
 const i18n: string = localStorage.getItem('locale') || 'en'
-console.log(messages[i18n].select.loading)
+console.log(messages[i18n]['404'])
 
 const api: AxiosInstance = axios.create({
   headers: {
@@ -11,18 +14,31 @@ const api: AxiosInstance = axios.create({
 })
 
 //TODO translate msg with i18n
-const translateMsg = (msg: string) => {
-  messages[i18n][msg]
+const translateMsg = (data: Record<string, any>) => {
+  const msg = messages[i18n][data.code] || data.message
+  console.log('current runtime is h5: ', isMobile())
+  if (isMobile()) {
+    Notify({ type: 'danger', message: msg, position: 'top' })
+  } else {
+    ElMessage.error(msg)
+  }
+  return msg
 }
 api.interceptors.response.use(
   (res) => {
-    // TODO if res.data.code != 200, reject error
-    // return Promise.reject(res)
-    return res
+    console.log(19, res.data)
+
+    if (res.data?.status === 'success') {
+      return res
+    }
+
+    translateMsg(res.data)
+    return Promise.reject(res)
   },
   (err) => {
-    translateMsg(err.response.data)
     console.log('err', err.response)
+
+    translateMsg(err.response.data)
     return Promise.reject(err.response)
   }
 )

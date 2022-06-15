@@ -5,6 +5,8 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
 import { presetIcons, presetWind } from 'unocss'
+import { visualizer } from 'rollup-plugin-visualizer'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -47,6 +49,24 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/v3\/api/, ''),
+      },
+    },
+  },
+  build: {
+    // reportCompressedSize: true,
+    chunkSizeWarningLimit: 1024,
+    rollupOptions: {
+      plugins: [visualizer()],
+      output: {
+        manualChunks(id) {
+          if (id.includes('/node_modules/')) {
+            // console.log(60, '--------------------', id)
+            //设置需要独立打包的npm包
+            const modules = ['element-plus', 'vue', 'runtime', 'intlify', 'axios', 'lodash-es']
+            const chunk = modules.find((module) => id.includes(`/node_modules/${module}`))
+            return chunk ? `vendor-${chunk}` : 'vendor'
+          }
+        },
       },
     },
   },

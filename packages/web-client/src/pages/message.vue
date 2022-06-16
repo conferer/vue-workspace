@@ -28,12 +28,13 @@
   }
   const updateMessage = () => {
     message.value.title = 'test message'
+    delete message.value.modifiedBy
     messageApi.update(message.value).then((res: any) => {
       message.value = res.data
     })
   }
   const getMessage = () => {
-    messageApi.get(1).then((res: any) => {
+    messageApi.get(3).then((res: any) => {
       console.log(40, res.data)
       message.value = res.data
     })

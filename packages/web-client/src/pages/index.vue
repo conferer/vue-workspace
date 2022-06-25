@@ -36,7 +36,7 @@
   // This starter template is using Vue 3 <script setup> SFCs
   // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
   import { useI18n } from 'vue-i18n'
-  import { userApi } from '@conferer/api'
+  import { messageApi, userApi } from '@conferer/api'
   import { onMounted, ref } from 'vue'
   import { findUsers, isFirefox } from '@conferer/utils'
 
@@ -59,13 +59,17 @@
     userApi
       .createUser({ name: 'allen', age: 18 })
       .then((res) => {
-        console.log(51, res)
+        console.log(51)
         ElMessage.success('you are login!')
       })
       .catch((err) => {
         console.log(54, err, isFirefox())
         findUsers([2, 3])
       })
+  }
+
+  const searchMessage = () => {
+    messageApi.search({})
   }
 
   const switchVal = ref<boolean>(true)

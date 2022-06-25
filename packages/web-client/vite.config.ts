@@ -5,7 +5,6 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
 import { presetIcons, presetWind } from 'unocss'
-import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -55,7 +54,6 @@ export default defineConfig({
     // reportCompressedSize: true,
     chunkSizeWarningLimit: 1024,
     rollupOptions: {
-      plugins: [visualizer()],
       output: {
         manualChunks(id) {
           if (id.includes('/node_modules/')) {

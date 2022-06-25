@@ -1,11 +1,17 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios'
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import messages from './i18n'
 import { ElMessage } from 'element-plus'
 import { Notify } from 'vant'
 import { isMobile } from '@conferer/utils'
 
 const i18n: string = localStorage.getItem('locale') || 'en'
-console.log(messages[i18n]['404'])
+
+export interface HttpResponse<T = unknown> {
+  data: T
+  code: string
+  status: string
+  message?: string
+}
 
 const api: AxiosInstance = axios.create({
   headers: {
@@ -13,7 +19,12 @@ const api: AxiosInstance = axios.create({
   },
 })
 
-//TODO translate msg with i18n
+api.interceptors.request.use((req: AxiosRequestConfig) => {
+  //TODO Authorization should be processed here
+  return req
+})
+
+//translate msg with i18n
 const notifyI18nMsg = (data: Record<string, any>): void => {
   const msg: string = messages[i18n][data.code] || data.message
   console.log('current runtime is h5: ', isMobile())
@@ -24,7 +35,7 @@ const notifyI18nMsg = (data: Record<string, any>): void => {
   }
 }
 api.interceptors.response.use(
-  (res: AxiosResponse) => {
+  (res: AxiosResponse<HttpResponse>) => {
     if (res.data?.status === 'success') {
       return res.data
     }

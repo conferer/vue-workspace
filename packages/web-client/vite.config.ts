@@ -14,7 +14,15 @@ export default defineConfig({
     //   include: path.resolve(__dirname, 'locales/**'),
     // }),
     Unocss({
-      presets: [presetWind(), presetIcons()],
+      presets: [
+        presetWind(),
+        presetIcons({
+          extraProperties: {
+            display: 'inline-block',
+            'vertical-align': 'middle',
+          },
+        }),
+      ],
     }),
     Components({
       resolvers: [ElementPlusResolver()],

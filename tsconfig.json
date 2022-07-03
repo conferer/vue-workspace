@@ -7,7 +7,7 @@
     ]
   },
   "include": [
-    "api",
+    "apis",
     "utils",
     "components",
     "unocss.config.ts"

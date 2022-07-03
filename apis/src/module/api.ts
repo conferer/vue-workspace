@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import messages from './i18n'
 import { ElMessage } from 'element-plus'
 import { Notify } from 'vant'
-import { isMobile } from '@conferer/utils'
+import { isMobile } from '@conferer/util'
 
 const i18n: string = localStorage.getItem('locale') || 'en'
 

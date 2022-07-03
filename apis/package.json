@@ -5,10 +5,10 @@
   "main": "index.ts",
   "dependencies": {
     "axios": "^0.27.2",
-    "qs": "^6.10.5"
+    "qs": "^6.11.0"
   },
   "devDependencies": {
-    "@conferer/utils": "workspace:*",
+    "@conferer/util": "workspace:*",
     "@types/qs": "^6.9.7",
     "element-plus": "^2.2.5",
     "vant": "^4.0.0-alpha.4",

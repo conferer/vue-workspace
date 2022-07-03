@@ -38,7 +38,7 @@
   import { useI18n } from 'vue-i18n'
   import { userApi } from '@conferer/api'
   import { onMounted, ref } from 'vue'
-  import { findUsers, isFirefox } from '@conferer/utils'
+  import { findUsers, isFirefox } from '@conferer/util'
 
   import { ElMessage } from 'element-plus'
   import { useRouter } from 'vue-router'

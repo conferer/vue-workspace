@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@conferer/api": "workspace:*",
-    "@conferer/utils": "workspace:*",
+    "@conferer/util": "workspace:*",
     "element-plus": "^2.2.5",
     "pinia": "^2.0.14",
     "vue": "^3.2.37",

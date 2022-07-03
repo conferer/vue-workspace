@@ -12,7 +12,7 @@
     "@conferer/api": "workspace:*",
     "pinia": "^2.0.14",
     "vant": "^4.0.0-alpha.4",
-    "vue": "^3.2.36",
+    "vue": "^3.2.37",
     "vue-i18n": "^9.1.10",
     "vue-router": "^4.0.15"
   },

@@ -1,11 +1,11 @@
 {
-  "name": "@conferer/utils",
+  "name": "@conferer/util",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "index.ts",
   "peerDependencies": {
-    "vue": "^3.2.0",
+    "vue": "^3.2.37",
     "vite": "^2.9.9"
   }
 }

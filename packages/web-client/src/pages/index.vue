@@ -1,7 +1,9 @@
 <template>
   <div>
     <img alt="Vue logo" src="/src/assets/logo.png" />
-    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+    <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
+    <ClAvatar msg="Hello Vue 3 + TypeScript + Vite" />
+    <ClButton label="Register" />
     <div>{{ t('messagebox.title') }}</div>
     <div class="my-4">
       <el-switch v-model="switchVal" @click="switchLang" />
@@ -16,16 +18,17 @@
     <el-button type="warning">Warning</el-button>
     <el-button type="danger">Danger</el-button>
     <el-button>中文</el-button>
-    <div class="text-center my-4">
+    <div class="text-center my-4 text-2xl">
       <!-- A large Vue logo -->
-      <div class="i-carbon-user-admin text-3xl inline-block" />
+      <em class="i-carbon-user-admin" />
       <!-- Sun in light mode, Moon in dark mode, from Carbon -->
-      <button class="i-carbon-sun dark:i-carbon-moon text-2xl" />
+      <em class="i-carbon-sun hover:i-carbon-moon dark:i-carbon-moon" />
       <!-- Twemoji of laugh, turns to tear on hovering -->
+
       <el-badge :value="12" class="item">
         <el-button>comments</el-button>
       </el-badge>
-      <el-card shadow="hover"> you'r right</el-card>
+      <el-card shadow="hover" class="w-1/6 mx-auto my-4"> you'r right</el-card>
 
       <router-link to="/user">nav to about</router-link>
     </div>
@@ -38,10 +41,12 @@
   import { useI18n } from 'vue-i18n'
   import { messageApi, userApi } from '@conferer/api'
   import { onMounted, ref } from 'vue'
-  import { findUsers, isFirefox } from '@conferer/utils'
+  import { findUsers, isFirefox } from '@conferer/util'
 
   import { ElMessage } from 'element-plus'
   import { useRouter } from 'vue-router'
+
+  import { ClAvatar, ClButton } from '@conferer/component'
 
   const router = useRouter()
   onMounted(() => {

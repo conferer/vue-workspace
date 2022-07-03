@@ -21,3 +21,4 @@ this projects is a best practice of monorepositories for vue 3 with vite.
 - [x] api based on axios with i18n msg 、 error display and login redirect
 - [x] common utils
 - [x] common components
+- [ ] cleanup components and provide playground

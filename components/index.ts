@@ -1,3 +1,5 @@
-import ClAvatar from './src/avatar.vue'
+// import ClAvatar from './src/avatar.vue'
 import ClButton from './src/button.vue'
-export { ClAvatar, ClButton }
+export { ClButton }
+
+export * from './src/avatar'

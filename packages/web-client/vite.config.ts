@@ -5,14 +5,16 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
 import { presetIcons, presetWind } from 'unocss'
+import { vueI18n } from '@intlify/vite-plugin-vue-i18n'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    // vueI18n({
-    //   include: path.resolve(__dirname, 'locales/**'),
-    // }),
+    vueI18n({
+      // you need to set i18n resource including paths !
+      include: fileURLToPath(new URL('./src/locales/**', import.meta.url)),
+    }),
     Unocss({
       presets: [
         presetWind(),
@@ -25,6 +27,7 @@ export default defineConfig({
       ],
     }),
     Components({
+      dts: false,
       resolvers: [ElementPlusResolver()],
     }),
   ],

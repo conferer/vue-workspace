@@ -3,6 +3,9 @@
     <pre>
       {{ message }}
     </pre>
+    <div class="w-1/3 my-4">
+      <el-input v-model="id" />
+    </div>
     <el-button @click="createMessage"> create message</el-button>
     <el-button @click="updateMessage"> update message</el-button>
     <el-button @click="getMessage"> get message</el-button>
@@ -16,6 +19,7 @@
   onMounted(() => {
     getMessage()
   })
+  const id = ref<number>(3)
   const message = ref<Record<string, any>>({})
   const createMessage = () => {
     const form = {
@@ -34,7 +38,7 @@
     })
   }
   const getMessage = () => {
-    messageApi.get(3).then((res: any) => {
+    messageApi.get(id.value).then((res: any) => {
       console.log(40, res.data)
       message.value = res.data
     })

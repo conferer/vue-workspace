@@ -13,7 +13,15 @@ export default defineConfig({
     //   include: path.resolve(__dirname, 'locales/**'),
     // }),
     Unocss({
-      presets: [presetWind(), presetIcons()],
+      presets: [
+        presetWind(),
+        presetIcons({
+          extraProperties: {
+            display: 'inline-block',
+            'vertical-align': 'middle',
+          },
+        }),
+      ],
     }),
     Components({
       dts: false,
@@ -47,6 +55,23 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/v3\/api/, ''),
+      },
+    },
+  },
+  build: {
+    // reportCompressedSize: true,
+    chunkSizeWarningLimit: 1024,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('/node_modules/')) {
+            // console.log(60, '--------------------', id)
+            //设置需要独立打包的npm包
+            const modules = ['element-plus', 'vue', 'runtime', 'intlify', 'axios', 'lodash-es']
+            const chunk = modules.find((module) => id.includes(`/node_modules/${module}`))
+            return chunk ? `vendor-${chunk}` : 'vendor'
+          }
+        },
       },
     },
   },

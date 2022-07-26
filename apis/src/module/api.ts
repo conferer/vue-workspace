@@ -26,7 +26,7 @@ api.interceptors.request.use((req: AxiosRequestConfig) => {
 
 //translate msg with i18n
 const notifyI18nMsg = (data: Record<string, any>): void => {
-  const msg: string = messages[i18n][data.code] || data.message
+  const msg: string = messages[i18n][data.message] || data.code
   console.log('current runtime is h5: ', isMobile())
   if (isMobile()) {
     Notify({ type: 'danger', message: msg, position: 'top' })

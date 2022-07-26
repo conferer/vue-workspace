@@ -1,5 +1,5 @@
 const messages = Object.fromEntries(
-  Object.entries(import.meta.globEager('../../locales/*.ts')).map(([key, value]) => {
+  Object.entries(import.meta.glob('../../locales/*.ts', { eager: true })).map(([key, value]) => {
     return [key.slice(14, -3), value.default]
   })
 )

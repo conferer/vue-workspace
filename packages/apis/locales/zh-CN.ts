@@ -5,6 +5,8 @@ export default {
   '405': '请求方法不支持',
   '500': '服务暂时不可用',
   BadCredentials: '登录失败',
+  UserAlreadyJoined: '用户已加入',
+  UserAlreadyExisted: '用户已存在',
   '100403': '用户已被禁用',
   '100404': '用户不存在',
   '200404': '课程不存在',

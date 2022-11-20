@@ -2,20 +2,8 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "types": [
-      "vite/client"
-    ]
+    "types": ["vite/client"]
   },
-  "include": [
-    "apis",
-    "utils",
-    "components",
-    "unocss.config.ts"
-  ],
-  "exclude": [
-    "**/dist",
-    "**/node_modules",
-    "packages/**/dist",
-    "packages/**/node_modules"
-  ]
+  "include": ["packages/apis", "utils", "components", "unocss.config.ts"],
+  "exclude": ["**/dist", "**/node_modules", "packages/**/dist", "packages/**/node_modules"]
 }

@@ -1,12 +1,5 @@
 packages:
-  # api base on axios
-  - 'apis/**'
-  # all common utils
-  - 'utils/**'
-  # all packages in direct subdirs of packages/
+  # projects
+  - 'apps/**'
+  # components as node_modules deps
   - 'packages/*'
-  # all packages in subdirs of components/
-  - 'components/**'
-
-  # exclude packages that are inside test directories
-  - '!**/test/**'

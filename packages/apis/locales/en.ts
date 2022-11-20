@@ -5,6 +5,7 @@ export default {
   '405': 'Method not allowed',
   '500': 'Service not available',
   BadCredentials: 'Login failed',
-  '100403': 'User disabled',
+  UserAlreadyJoined: 'User already Joined',
+  UserAlreadyExisted: 'User already existed',
   '100404': 'User not found',
 }

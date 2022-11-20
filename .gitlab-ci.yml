@@ -1,0 +1,78 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SUBMODULE_UPDATE_FLAGS: --remote --jobs 4
+
+# node_modules 不适合缓存，本身 pnpm 已经有缓存了，其次，缓存的压缩和解压缩对于大量小文件来讲也是负担
+# cache:
+#   key:
+#     files:
+#       - package.json
+#   paths:
+#     - node_modules
+#     - apps/h5-client/node_modules
+#     - apps/web-client/node_modules
+#     - apps/tenant-client/node_modules
+
+stages:
+  - build
+  - admin
+  - supplier
+  - channel
+  - web
+
+.frontend:
+  # rules 比 only 更加灵活除了可以按照指定规则，还可以提供手动触发
+  # only:
+  #   refs:
+  #     - develop
+  #   changes:
+  #     - 'apps/$CUSTOM_APP_NAME-client'
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - 'apps/$CUSTOM_APP_NAME-client'
+      when: always
+    - when: manual
+      allow_failure: true
+  script:
+    - pnpm install
+
+    - echo "cd apps/$CUSTOM_APP_NAME-client"
+    - cd apps/$CUSTOM_APP_NAME-client
+
+    - ls -al
+    - pnpm install
+    - pnpm run build --mode stage
+
+    - echo "sudo rm -Rf /var/www/fyeeme/$CUSTOM_APP_NAME-client/dist/*"
+    - sudo rm -Rf /var/www/fyeeme/$CUSTOM_APP_NAME-client/dist/*
+
+    - echo "sudo -u ubuntu cp -r  dist/ /var/www/fyeeme/$CUSTOM_APP_NAME-client/"
+    - sudo -u ubuntu cp -r  dist/ /var/www/fyeeme/$CUSTOM_APP_NAME-client/
+
+build-job:
+  stage: build
+  script:
+    - ls -al .git/modules/apps
+    - pnpm install
+  only:
+    refs:
+      - develop
+
+deploy-h5:
+  stage: supplier
+  extends: .frontend
+  variables:
+    CUSTOM_APP_NAME: 'h5'
+
+deploy-tenant:
+  stage: tenant
+  extends: .frontend
+  variables:
+    CUSTOM_APP_NAME: 'tenant'
+
+deploy-web:
+  stage: web
+  extends: .frontend
+  variables:
+    CUSTOM_APP_NAME: 'web'

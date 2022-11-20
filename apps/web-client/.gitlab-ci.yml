@@ -1,0 +1,16 @@
+before_script:
+  - pnpm install
+  - pnpm run build --mode stage
+stages:
+  - deploy
+
+deploy-job:
+  stage: deploy
+  script:
+    - sudo rm -Rf /var/www/fyeeme/web-client/dist/*
+    - sudo -u ubuntu cp -r  dist/ /var/www/fyeeme/web-client/
+    - echo 'Deploy has been finished for test server'
+
+  only:
+    - develop
+    - feat/gitlab-ci
